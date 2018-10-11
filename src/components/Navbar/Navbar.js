@@ -25,7 +25,7 @@ class Navbar extends Component {
           <ul className="navbar-nav ml-auto">
             <li className="nav-item ">
               <a className="nav-link" href="/">
-                Finance
+                Financials
               </a>
             </li>
             <li className="nav-item">
@@ -41,7 +41,7 @@ class Navbar extends Component {
             <li className="nav-item">
               <a className="nav-link" href="/">
                 <i className="fas fa-user-alt" />
-                Grant
+                Yunker
               </a>
             </li>
           </ul>
