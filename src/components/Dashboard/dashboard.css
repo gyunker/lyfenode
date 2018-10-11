@@ -1,0 +1,7 @@
+#dashboard .row {
+  border-bottom: 1px solid lightgrey;
+}
+
+.border-l {
+  border-left: 1px solid lightgrey;
+}
