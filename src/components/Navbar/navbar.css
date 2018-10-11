@@ -1,0 +1,24 @@
+.main-navBar {
+  padding: 0px 100px;
+}
+
+.main-logo {
+  width: 117px;
+}
+
+.nav-item {
+  padding: 2.5px 5px;
+  font-weight: 500;
+}
+.nav-item:not(:last-child) {
+  border-left: 1px solid lightgrey;
+}
+
+.nav-item:last-child {
+  background-color: lightgrey;
+}
+
+.fa-user-alt {
+  padding-right: 8px;
+  color: white;
+}
