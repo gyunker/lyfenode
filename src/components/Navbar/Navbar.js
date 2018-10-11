@@ -41,7 +41,7 @@ class Navbar extends Component {
             <li className="nav-item">
               <a className="nav-link" href="/">
                 <i className="fas fa-user-alt" />
-                Grant
+                Yunker
               </a>
             </li>
           </ul>
