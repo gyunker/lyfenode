@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./dashboard.css";
+import FinancialSummary from "../FinancialSummary/FinancialSummary";
 
 class Dashboard extends Component {
   render() {
@@ -29,8 +30,8 @@ class Dashboard extends Component {
           </div>
         </div>
         <div className="row">
-          <div className="col-sm-3 text-center p-3">
-            Financial Summary Component Here
+          <div className="col-sm-3 text-center p-0">
+            <FinancialSummary />
           </div>
           <div className="col-sm-3 border-l text-center p-3">
             Health Summary Compontent Here

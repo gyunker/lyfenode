@@ -1,0 +1,33 @@
+#financialsummary {
+  margin: 30px 10%;
+}
+
+#financialsummary h6 {
+  color: #aaa;
+  margin-bottom: 32px;
+}
+
+#financialsummary p {
+  color: #2d2e2e;
+  background-color: #fbfbfb;
+  border: 1.3px solid #dbdbdb;
+  border-radius: 2px;
+  max-width: 250px;
+  margin: 4px auto;
+  font-weight: 500;
+  padding: 4px 0px 4px 16px;
+  text-align: left;
+}
+
+#financialsummary p .fas:last-of-type {
+  padding: 0px 10px;
+  color: #aaa;
+}
+
+.red {
+  color: #f7b280;
+}
+
+.green {
+  color: #a0dbbc;
+}
