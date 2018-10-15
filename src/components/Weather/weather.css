@@ -1,0 +1,11 @@
+#weather {
+  color: #aaa;
+}
+
+#weather h6 {
+  margin-bottom: 16px;
+}
+
+#weather .row {
+  border-bottom: 0;
+}
