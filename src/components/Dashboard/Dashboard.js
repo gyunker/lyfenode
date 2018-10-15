@@ -3,6 +3,7 @@ import "./dashboard.css";
 import FinancialSummary from "../FinancialSummary/FinancialSummary";
 import HealthSummary from "../HealthSummary/HealthSummary";
 import Weather from "../Weather/Weather"
+import QuickLinks from "../QuickLinks/QuickLinks"
 
 class Dashboard extends Component {
   render() {
@@ -16,7 +17,7 @@ class Dashboard extends Component {
             <Weather />
           </div>
           <div className="col-sm-4 border-l text-center p-3">
-            Quick Links Here
+           <QuickLinks />           
           </div>
         </div>
         <div className="row">
