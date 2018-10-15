@@ -1,0 +1,15 @@
+
+  
+  #quicklinks h6 {
+    color: #aaa;
+    margin-bottom: 30px 10%;
+  }
+
+  .quicklink-image {
+    max-width: 100px;
+    max-height: 50px;
+  }
+
+  #quicklinks .row {
+    border-bottom:1px solid transparent;
+    }

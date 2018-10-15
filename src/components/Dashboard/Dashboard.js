@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import "./dashboard.css";
 import FinancialSummary from "../FinancialSummary/FinancialSummary";
+import HealthSummary from "../HealthSummary/HealthSummary";
 import Weather from "../Weather/Weather"
+import QuickLinks from "../QuickLinks/QuickLinks"
 
 class Dashboard extends Component {
   render() {
@@ -15,7 +17,7 @@ class Dashboard extends Component {
             <Weather />
           </div>
           <div className="col-sm-4 border-l text-center p-3">
-            Quick Links Here
+           <QuickLinks />           
           </div>
         </div>
         <div className="row">
@@ -34,8 +36,8 @@ class Dashboard extends Component {
           <div className="col-sm-3 text-center p-0">
             <FinancialSummary />
           </div>
-          <div className="col-sm-3 border-l text-center p-3">
-            Health Summary Compontent Here
+          <div className="col-sm-3 border-l text-center">
+            <HealthSummary />
           </div>
           <div className="col-sm-6 border-l text-center p-3">
             Update Component Here
