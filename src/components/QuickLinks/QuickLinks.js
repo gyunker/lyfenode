@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./quicklinks.css";
 import Gmail from "../../img/gmail-logo.png";
 import Insta from "../../img/instagram-logo.png";
-import NYtimes from "../../img/nytimes-logo.png";
+import Pandora from "../../img/pandora-logo.png";
 import ESPN from "../../img/espn-logo.png";
 
 class QuickLinks extends Component {
@@ -22,8 +22,8 @@ class QuickLinks extends Component {
         </a>
       </div>
       <div className="col-sm-3 text-center p-3">
-      <a href="https://www.nytimes.com">
-          <img src={NYtimes} className="quicklink-image" alt="NYtimes Logo" />
+      <a href="https://www.pandora.com">
+          <img src={Pandora} className="quicklink-image" alt="Pandora Logo" />
         </a>
       </div>
       <div className="col-sm-3 text-center p-3">
