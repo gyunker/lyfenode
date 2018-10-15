@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./dashboard.css";
 import FinancialSummary from "../FinancialSummary/FinancialSummary";
+import Weather from "../Weather/Weather"
 
 class Dashboard extends Component {
   render() {
@@ -11,7 +12,7 @@ class Dashboard extends Component {
             Personal Component Here
           </div>
           <div className="col-sm-4 border-l text-center p-3">
-            Weather Compontent Here
+            <Weather />
           </div>
           <div className="col-sm-4 border-l text-center p-3">
             Quick Links Here
