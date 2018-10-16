@@ -1,0 +1,44 @@
+#updates {
+    margin: 30px 10%;
+  }
+
+#question {
+    margin: 30px 10%;
+  }
+
+input {
+    max-width: 50px;
+    text-align: center;
+    margin-left: 15px;
+    border: 1px solid #aaa;
+}
+
+  #updates h6 {
+    color: #aaa;
+    margin-bottom: 32px;
+  }
+  
+  #updates p {
+    color: #2d2e2e;
+    background-color: #fbfbfb;
+    border: 1.3px solid #dbdbdb;
+    border-radius: 2px;
+    max-width: 250px;
+    margin: 4px auto;
+    font-weight: 500;
+    padding: 4px 0px 4px 16px;
+    text-align: left;
+  }
+  
+  #updates p .fas:last-of-type {
+    padding: 0px 10px;
+    color: #aaa;
+  }
+  
+  .red {
+    color: #f7b280;
+  }
+  
+  .green {
+    color: #a0dbbc;
+  }

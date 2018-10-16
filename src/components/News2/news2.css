@@ -1,13 +1,13 @@
-#news p {
+#news2 p {
   color: black;
 }
 
 
-#news h6 {
+#news2 h6 {
   margin-bottom: 16px;
   color: #aaa;
 }
 
-#news .row {
+#news2 .row {
   border-bottom: 0;
 }

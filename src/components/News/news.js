@@ -1,76 +1,39 @@
 import React, { Component } from "react";
-import "./weather.css";
+import "./news.css";
 
-const WeatherColumn = ({ timestamp, icon, description }) => {
-  const dayNameAbbr = new Date(timestamp * 1000).toString().split(' ').shift();
-
-  return (
-    <div className="col-sm-3">
-      <p>{dayNameAbbr}</p>
-      <img src={`http://openweathermap.org/img/w/${icon}.png`} alt={description} title={description} />
-    </div>
-  );
-}
-
-class Weather extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      isLoading: true
-    };
-  }
-
-  componentDidMount() {
-    fetch('http://api.openweathermap.org/data/2.5/forecast?id=5392171&appid=1074c88f231350293c937f07686ff85a')
-      .then(res => res.json())
-      .then(data => {
-        const { city, list } = data
-
-        const now = new Date()
-        const todayStr = `${now.getFullYear()}-${(now.getMonth()+1)}-${now.getDate()}`;
-        const dataToday = list.filter(item => item.dt_txt.startsWith(todayStr)).slice(0, 1);
-        const dataAtNoonNonToday = list.filter(item => !item.dt_txt.startsWith(todayStr) && item.dt_txt.endsWith('12:00:00'));
-
-        this.setState({
-          isLoading: false,
-          data: dataToday.concat(dataAtNoonNonToday).slice(0, 4),
-          city
-        });
-      })
-      .catch(err => {
-        this.setState({
-          isLoading: false,
-          data: [],
-          city: { name: 'Error' },
-          err
-        });
-      });
-  }
-
+class News extends Component {
   render() {
-    return this.state.isLoading ? this.renderLoading() : this.renderLoaded();
-
-  }
-
-  renderLoading() {
     return (
-      <div id="weather">
-        Loading...
-      </div>
-    );
-  }
-
-  renderLoaded() {
-    return (
-      <div id="weather">
-        <h6>{this.state.city.name}</h6>
-        <div className="row">
-          {this.state.data.map(data => <WeatherColumn key={data.dt} timestamp={data.dt} icon={data.weather[0].icon} description={data.weather[0].description} />)}
-        </div>
+      <div id="news">
+        <h6>New York Times</h6>
+        <a href="https://www.nytimes.com/2018/10/15/us/politics/trump-saudi-king-journalist-khashoggi.html?action=click&module=Top%20Stories&pgtype=Homepage">
+          <p>
+          Trump Says ‘Rogue Killers’ May...
+          </p>
+        </a>
+        <a href="https://www.nytimes.com/2018/10/15/technology/myanmar-facebook-genocide.html?rref=collection%2Fsectioncollection%2Fbusiness&action=click&contentCollection=business&region=rank&module=package&version=highlights&contentPlacement=1&pgtype=sectionfront">
+          <p>
+          A Genocide Incited on Facebook...
+          </p>
+        </a>
+        <a href="https://www.nytimes.com/2018/10/14/business/economy/stock-market-earnings-season.html">
+          <p>
+          Wall St. Pins Hopes on Strong...
+          </p>
+        </a>
+        <a href="https://www.nytimes.com/2018/10/04/fashion/mens-style/hiking-boots-fashion.html?rref=collection%2Fsectioncollection%2Fmens-style&action=click&contentCollection=mens-style&region=rank&module=package&version=highlights&contentPlacement=4&pgtype=sectionfront">
+          <p>
+          Take a Hike With Fall’s Hottest...
+          </p>
+        </a>
+        <a href="https://www.nytimes.com/2018/10/05/dining/instant-pot-indian.html?rref=collection%2Fsectioncollection%2Ffood&action=click&contentCollection=dining&region=rank&module=package&version=highlights&contentPlacement=9&pgtype=sectionfront">
+          <p>
+          Indian Cooks Embrace the Instant...
+          </p>
+        </a>
       </div>
     );
   }
 }
 
-export default Weather;
+export default News;
