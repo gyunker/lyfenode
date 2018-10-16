@@ -8,7 +8,6 @@ import News from "../News/News"
 import News2 from "../News2/News2"
 import Updates from "../Updates/Updates"
 
-
 class Dashboard extends Component {
   render() {
     return (
