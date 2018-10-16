@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import "./dashboard.css";
 import FinancialSummary from "../FinancialSummary/FinancialSummary";
 import HealthSummary from "../HealthSummary/HealthSummary";
-import Weather from "../Weather/Weather"
-import QuickLinks from "../QuickLinks/QuickLinks"
-import News from "../News/News"
-import News2 from "../News2/News2"
-import Updates from "../Updates/Updates"
+import Weather from "../Weather/Weather";
+import QuickLinks from "../QuickLinks/QuickLinks";
+import News from "../News/News";
+import News2 from "../News2/News2";
+import Updates from "../Updates/Updates";
 
 class Dashboard extends Component {
   render() {
