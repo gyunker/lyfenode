@@ -5,6 +5,9 @@ import HealthSummary from "../HealthSummary/HealthSummary";
 import Weather from "../Weather/Weather"
 import QuickLinks from "../QuickLinks/QuickLinks"
 import Stocks from "../Stocks/Stocks";
+import News from "../News/News";
+import News2 from "../News2/News2";
+import Updates from "../Updates/Updates";
 
 class Dashboard extends Component {
   render() {
@@ -22,9 +25,11 @@ class Dashboard extends Component {
           </div>
         </div>
         <div className="row">
-          <div className="col-sm-3 text-center p-3">News 1 Component Here</div>
+          <div className="col-sm-3 text-center p-3">
+          <News />
+          </div>
           <div className="col-sm-3 border-l text-center p-3">
-            News 2 Compontent Here
+          <News2 />
           </div>
           <div className="col-sm-3 border-l text-center p-3">
             <Stocks />
