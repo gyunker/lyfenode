@@ -4,6 +4,7 @@ import FinancialSummary from "../FinancialSummary/FinancialSummary";
 import HealthSummary from "../HealthSummary/HealthSummary";
 import Weather from "../Weather/Weather"
 import QuickLinks from "../QuickLinks/QuickLinks"
+import Stocks from "../Stocks/Stocks";
 
 class Dashboard extends Component {
   render() {
@@ -17,7 +18,7 @@ class Dashboard extends Component {
             <Weather />
           </div>
           <div className="col-sm-4 border-l text-center p-3">
-           <QuickLinks />           
+           <QuickLinks />
           </div>
         </div>
         <div className="row">
@@ -26,7 +27,7 @@ class Dashboard extends Component {
             News 2 Compontent Here
           </div>
           <div className="col-sm-3 border-l text-center p-3">
-            Stocks Component Here
+            <Stocks />
           </div>
           <div className="col-sm-3 border-l text-center p-3">
             Sports Component Here
