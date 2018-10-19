@@ -7,47 +7,47 @@ class FinancialSummary extends Component {
       <div id="financialsummary">
         <h6>Financial Summary</h6>
         <p>
-          <i class="fas fa-circle red" />
+          <i className="fas fa-circle red" />
           <i className="fas fa-clipboard-list" />
           Home & Bills
         </p>
         <p>
-          <i class="fas fa-circle green" />
+          <i className="fas fa-circle green" />
           <i className="fas fa-clipboard-list" />
           Taxes
         </p>
         <p>
-          <i class="fas fa-circle green" />
+          <i className="fas fa-circle green" />
           <i className="fas fa-clipboard-list" />
           Food
         </p>
         <p>
-          <i class="fas fa-circle red" />
+          <i className="fas fa-circle red" />
           <i className="fas fa-clipboard-list" />
           Travel & Ent.
         </p>
         <p>
-          <i class="fas fa-circle red" />
+          <i className="fas fa-circle red" />
           <i className="fas fa-clipboard-list" />
           Shopping
         </p>
         <p>
-          <i class="fas fa-circle green" />
+          <i className="fas fa-circle green" />
           <i className="fas fa-clipboard-list" />
           Health
         </p>
         <p>
-          <i class="fas fa-circle green" />
+          <i className="fas fa-circle green" />
           <i className="fas fa-clipboard-list" />
           Auto
         </p>
         <p>
-          <i class="fas fa-circle green" />
+          <i className="fas fa-circle green" />
           <i className="fas fa-clipboard-list" />
           Gifts
         </p>
         <p>
-          <i class="fas fa-circle red" />
+          <i className="fas fa-circle red" />
           <i className="fas fa-clipboard-list" />
           Dependents
         </p>

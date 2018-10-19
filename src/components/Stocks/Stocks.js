@@ -57,7 +57,7 @@ class Stocks extends Component {
     return (
       <div id="stocks">
         <h6>Stocks</h6>
-        <div class="box">
+        <div className="box">
           <div className="row stock-row">
             <div className="col-sm-3">Symbol</div>
             <div className="col-sm-3">Price</div>
