@@ -2,11 +2,14 @@ import React, { Component } from "react";
 import "./dashboard.css";
 import FinancialSummary from "../FinancialSummary/FinancialSummary";
 import HealthSummary from "../HealthSummary/HealthSummary";
+
 import Weather from "../Weather/Weather";
 import QuickLinks from "../QuickLinks/QuickLinks";
 import News from "../News/News";
 import News2 from "../News2/News2";
 import Updates from "../Updates/Updates";
+import Stocks from "../Stocks/Stocks";
+
 
 class Dashboard extends Component {
   render() {
@@ -20,7 +23,7 @@ class Dashboard extends Component {
             <Weather />
           </div>
           <div className="col-sm-4 border-l text-center p-3">
-           <QuickLinks />           
+           <QuickLinks />
           </div>
         </div>
         <div className="row">
@@ -31,7 +34,7 @@ class Dashboard extends Component {
           <News2 />   
           </div>
           <div className="col-sm-3 border-l text-center p-3">
-            Stocks Component Here
+            <Stocks />
           </div>
           <div className="col-sm-3 border-l text-center p-3">
             Sports Component Here
