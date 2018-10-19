@@ -45,8 +45,8 @@ class Dashboard extends Component {
           <div className="col-sm-3 border-l text-center">
             <HealthSummary />
           </div>
-          <div className="col-sm-6 border-l text-center p-3">
-            Update Component Here
+          <div className="col-sm-6 border-l text-center">
+            <Updates />
           </div>
         </div>
       </div>
