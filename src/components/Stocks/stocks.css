@@ -1,0 +1,36 @@
+#stocks .box {
+  padding: 30px;
+  background: #fff;
+  border: 2px solid #ddd;
+}
+
+.stock-row > div {
+  text-align: right;
+}
+
+
+.stock-row > div:first-child {
+  text-align: left;
+}
+
+.stock-row > div:not(:first-child) > div:first-child {
+  color: lightskyblue;
+}
+
+.stock-row .positive {
+  color: #4caf50;
+}
+
+.stock-row .negative {
+  color: #f44336;
+}
+
+#stocks .stock-row {
+  border-bottom: 0;
+  line-height: 1.75;
+}
+
+#stocks h6 {
+  color: #aaa;
+  margin-bottom: 32px;
+}
