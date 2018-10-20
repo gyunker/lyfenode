@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 const Profile = require("../../models/Profile");
 
 //Load User model
-const Profile = require("../../models/User");
+const User = require("../../models/User");
 
 router.get("/test", (req, res) => res.json({ msg: "Profile works" }));
 
