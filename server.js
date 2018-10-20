@@ -4,7 +4,7 @@ const bodyparser = require("body-parser");
 
 const users = require("./routes/api/users");
 const profile = require("./routes/api/profile");
-const posts = require("./routes/api/posts");
+const health = require("./routes/api/health");
 
 const app = express();
 
@@ -26,7 +26,7 @@ app.get("/", (req, res) => res.send("hello"));
 
 app.use("/api/users", users);
 app.use("/api/profile", profile);
-app.use("/api/posts", posts);
+app.use("/api/health", health);
 
 const port = process.env.PORT || 5000;
 
