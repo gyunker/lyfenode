@@ -8,6 +8,7 @@ import Stocks from "../Stocks/Stocks";
 import News from "../News/News";
 import News2 from "../News2/News2";
 import Updates from "../Updates/Updates";
+import Sports from "../Sports/Sports";
 
 class Dashboard extends Component {
   render() {
@@ -35,7 +36,7 @@ class Dashboard extends Component {
             <Stocks />
           </div>
           <div className="col-sm-3 border-l text-center p-3">
-            Sports Component Here
+            <Sports />
           </div>
         </div>
         <div className="row">

@@ -1,0 +1,29 @@
+#sports .box {
+  padding: 30px;
+  background: #fff;
+  border: 2px solid #ddd;
+}
+
+#sports .sport-row > div {
+  text-align: left;
+  border-bottom: 0;
+}
+
+#sports .sport-row {
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+#sports .sport-row img {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+#sports .sport-row:last-child {
+  margin-bottom: 0;
+}
+
+#sports h6 {
+  color: #aaa;
+  margin-bottom: 32px;
+}
