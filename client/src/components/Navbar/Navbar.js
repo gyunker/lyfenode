@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./navbar.css";
 import Logo from "../../img/lyfenode-logo.png";
 
@@ -6,9 +7,9 @@ class Navbar extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light main-navBar">
-        <a className="navbar-brand" href="/">
+        <Link className="navbar-brand" to="/">
           <img src={Logo} className="main-logo" alt="LyfeNode Logo" />
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -37,6 +38,16 @@ class Navbar extends Component {
               <a className="nav-link" href="/">
                 About
               </a>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/register">
+                Sign Up
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/login">
+                Login
+              </Link>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/">
