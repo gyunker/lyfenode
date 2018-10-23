@@ -5,7 +5,7 @@ import Logo from "../../img/lyfenode-logo.png";
 class Navbar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light main-navBar">
+      <nav className="navbar navbar-expand-lg navbar-light main-navBar">
         <a className="navbar-brand" href="/">
           <img src={Logo} className="main-logo" alt="LyfeNode Logo" />
         </a>
