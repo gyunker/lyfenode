@@ -8,16 +8,21 @@ const profile = require("./routes/api/profile");
 const health = require("./routes/api/health");
 
 const app = express();
+const port = process.env.PORT || 3001;
 
 //Body parser middleware
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 
+// Serve Static Assets
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 // DB config
 const db = require("./config/keys").mongoURI;
 
 //Connect to MongoDB
-
 mongoose
   .connect(db)
   .then(() => console.log("MongoDB connected"))
@@ -33,6 +38,8 @@ app.use("/api/users", users);
 app.use("/api/profile", profile);
 app.use("/api/health", health);
 
-const port = process.env.PORT || 5000;
+app.get("/test", (req, res) => {
+  res.send("Hello from the other side");
+});
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
