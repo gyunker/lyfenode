@@ -5,7 +5,7 @@ class Wrapper extends Component {
   componentDidMount() {
     axios
       .get("/test")
-      .then(resp => console.log(resp))
+      .then(resp => console.log(resp.data))
       .catch(err => console.log(err));
   }
   render() {
