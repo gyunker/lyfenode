@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import "./weather.css";
+import icons from './icons';
 
 const WeatherColumn = ({ timestamp, icon, description }) => {
   const dayNameAbbr = new Date(timestamp * 1000).toString().split(' ').shift();
 
   return (
     <div className="col-sm-3">
-      <p>{dayNameAbbr}</p>
-      <img src={`http://openweathermap.org/img/w/${icon}.png`} alt={description} title={description} />
+      {/* <p>{dayNameAbbr}</p> */}
+      <img src={icons[icon]} alt={description} title={dayNameAbbr + " - " + description} id="weatherIcon"/>
     </div>
   );
 }

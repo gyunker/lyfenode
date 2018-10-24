@@ -9,3 +9,7 @@
 #weather .row {
   border-bottom: 0;
 }
+
+#weatherIcon {
+  max-width: 85px;
+}
