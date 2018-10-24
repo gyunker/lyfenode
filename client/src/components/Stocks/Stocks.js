@@ -25,8 +25,8 @@ class Stocks extends Component {
     fetch('https://api.iextrading.com/1.0/stock/market/batch?symbols=tsla,nflx,spy,adbe,fb,crm,goog,aapl,msft,amd&types=quote')
       .then(res => res.json())
       .then(data => {
-        const stocks = Object.values(data).map(stock => stock.quote)
 
+        const stocks = Object.values(data).map(stock => stock.quote)
         this.setState({
           isLoading: false,
           stocks
