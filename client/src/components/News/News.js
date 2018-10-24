@@ -15,7 +15,6 @@ const ArticleRow = ({title, url, urlToImage, sources }) => {
             <a href={url} target="_blank" rel="noopener noreferrer">{title}</a>
           </div>
           <div className="row-sm-3" id="articleDescription">
-            Description
           </div>
         </div>
   </div>
