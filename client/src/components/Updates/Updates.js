@@ -18,16 +18,26 @@ class Updates extends React.Component {
     };
 
     handleFormSubmit = (event) => {
+        const state = { ...this.state }
+
+        this.setState({
+            workoutHours: '',
+            weight: '',
+            drinks: '',
+            sleepWell: '',
+            sleepHours: ''
+        });
+
         event.preventDefault();
-        fetch('http://localhost:5000/api/users/login', {
+        fetch('/api/users/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: 'test@test.com', password: 'testtest' })
         }).then(res => res.json()).then(({ token }) => {
-            return fetch('http://localhost:5000/api/health/submit', {
+            return fetch('/api/health/submit', {
                 method: 'POST',
                 headers: { Authorization: token, 'Content-Type': 'application/json' },
-                body: JSON.stringify(this.state)
+                body: JSON.stringify(state)
             }).then(res => res.json())
         }).then(console.log).catch(console.log)
     };
