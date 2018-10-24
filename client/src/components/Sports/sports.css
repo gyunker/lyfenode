@@ -2,6 +2,7 @@
   padding: 30px;
   background: #fff;
   border: 2px solid #ddd;
+  margin-right: 32px;
 }
 
 #sports .sport-row > div {
@@ -25,5 +26,5 @@
 
 #sports h6 {
   color: #aaa;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
