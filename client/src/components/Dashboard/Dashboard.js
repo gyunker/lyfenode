@@ -16,7 +16,7 @@ class Dashboard extends Component {
       <div id="dashboard">
         <div className="row">
           <div className="col-sm-4 text-center p-3">
-            Personal Component Here
+            Enter your complaints here
           </div>
           <div className="col-sm-4 border-l text-center p-3">
             <Weather />
