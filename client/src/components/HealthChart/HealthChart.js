@@ -11,7 +11,7 @@ class HealthChart extends Component {
 
     this.state = {
       isLoading: true
-    };
+    }; 
   }
 
   componentDidMount() {

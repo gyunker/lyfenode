@@ -44,39 +44,39 @@ class Updates extends React.Component {
     };
 
 
-    render() {
-        return (
-            <div id="updates">
-                <form name="application">
-                    <fieldset>
-                        <h6> Updates Needed </h6>
-                        <div id="question">
-                            <label>How many hours did you workout last week? </label>
-                            <input type="number" onChange={this.handleFormInput} name="workoutHours" placeholder="3" value={this.state.workoutHours} />
-                        </div>
-                        <div id="question">
-                            <label>What is your weight today? </label>
-                            <input type="number"  onChange={this.handleFormInput} name="weight" placeholder="175" value={this.state.weight} />
-                        </div>
-                        <div id="question">
-                            <label>How many drinks did you have last week? </label>
-                            <input type="number"  onChange={this.handleFormInput} name="drinks" placeholder="8" value={this.state.drinks} />
-                        </div>
-                        <div id="question">
-                            <label>Did you sleep well last night? </label>
-                            <input type="text" onChange={this.handleFormInput} name="sleepWell" placeholder="Yes" value={this.state.sleepWell} />
-                        </div>
-                        <div id="question">
-                            <label>How many hours did you sleep last night? </label>
-                            <input type="number"  onChange={this.handleFormInput} name="sleepHours" placeholder="8" value={this.state.sleepHours} />
-                        </div>
-                    </fieldset>
-                    <button className="submit" onClick={this.handleFormSubmit}>Submit</button>
-                </form>
-            </div>
-        );
-    };
-};
+//     render() {
+//         return (
+//             <div id="updates">
+//                 <form name="application">
+//                     <fieldset>
+//                         <h6> Updates Needed </h6>
+//                         <div id="question">
+//                             <label>How many hours did you workout last week? </label>
+//                             <input type="number" onChange={this.handleFormInput} name="workoutHours" placeholder="3" value={this.state.workoutHours} />
+//                         </div>
+//                         <div id="question">
+//                             <label>What is your weight today? </label>
+//                             <input type="number"  onChange={this.handleFormInput} name="weight" placeholder="175" value={this.state.weight} />
+//                         </div>
+//                         <div id="question">
+//                             <label>How many drinks did you have last week? </label>
+//                             <input type="number"  onChange={this.handleFormInput} name="drinks" placeholder="8" value={this.state.drinks} />
+//                         </div>
+//                         <div id="question">
+//                             <label>Did you sleep well last night? </label>
+//                             <input type="text" onChange={this.handleFormInput} name="sleepWell" placeholder="Yes" value={this.state.sleepWell} />
+//                         </div>
+//                         <div id="question">
+//                             <label>How many hours did you sleep last night? </label>
+//                             <input type="number"  onChange={this.handleFormInput} name="sleepHours" placeholder="8" value={this.state.sleepHours} />
+//                         </div>
+//                     </fieldset>
+//                     <button className="submit" onClick={this.handleFormSubmit}>Submit</button>
+//                 </form>
+//             </div>
+//         );
+//     };
+// };
 
 
   handleFormSubmit = event => {
@@ -147,6 +147,6 @@ class Updates extends React.Component {
       </div>
     );
   }
-}
+};
 
 export default Updates;
