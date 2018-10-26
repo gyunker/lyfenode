@@ -28,7 +28,7 @@ class Sports extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=4328`)
+    fetch(`https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=4387`)
       .then(res => res.json())
       .then(data => {
         const events = data.events.slice(0, 5)
@@ -39,6 +39,7 @@ class Sports extends Component {
             .then(res => res.json())
             .then(data => data.teams[0])
         })
+        console.log(data);
 
         Promise.all(teamPromises).then(teams => {
           const teamsMap = {}

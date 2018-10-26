@@ -2,13 +2,12 @@ import React, { Component } from "react";
 import "./weather.css";
 import icons from './icons';
 
-const WeatherColumn = ({ timestamp, icon, description }) => {
+const WeatherColumn = ({ timestamp, icon, temp, description }) => {
   const dayNameAbbr = new Date(timestamp * 1000).toString().split(' ').shift();
-
   return (
     <div className="col-sm-3">
       {/* <p>{dayNameAbbr}</p> */}
-      <img src={icons[icon]} alt={description} title={dayNameAbbr + " - " + description} id="weatherIcon"/>
+      <img src={icons[icon]} alt={description} title={parseInt(temp) +"° on " + dayNameAbbr + " w/ " + description} id="weatherIcon"/>
     </div>
   );
 }
@@ -18,12 +17,13 @@ class Weather extends Component {
     super();
 
     this.state = {
-      isLoading: true
+      isLoading: true,
+      zip: 94403
     };
   }
 
   componentDidMount() {
-    fetch('http://api.openweathermap.org/data/2.5/forecast?id=5392171&appid=1074c88f231350293c937f07686ff85a')
+    fetch(`http://api.openweathermap.org/data/2.5/forecast?zip=${this.state.zip},us&units=imperial&appid=1074c88f231350293c937f07686ff85a`)
       .then(res => res.json())
       .then(data => {
         const { city, list } = data
@@ -62,16 +62,23 @@ class Weather extends Component {
     );
   }
 
+
+
   renderLoaded() {
+    const firstDay = new Date(this.state.data[0].dt * 1000).toString().split(' ').shift();
+    const lastDay = new Date(this.state.data[3].dt * 1000).toString().split(' ').shift();
+
     return (
       <div id="weather">
-        <h6>{this.state.city.name}</h6>
+        <h6>{this.state.city.name + " (" + firstDay + " - " + lastDay + ")"}</h6>
         <div className="row">
-          {this.state.data.map(data => <WeatherColumn key={data.dt} timestamp={data.dt} icon={data.weather[0].icon} description={data.weather[0].description} />)}
+        
+          {this.state.data.map(data => <WeatherColumn key={data.dt} timestamp={data.dt} temp={data.main.temp} icon={data.weather[0].icon} description={data.weather[0].description} />)}
         </div>
       </div>
     );
   }
 }
+
 
 export default Weather;

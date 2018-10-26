@@ -42,7 +42,7 @@ class News extends Component {
       .then(data => {
         const news = Object.values(data)
         const articles = news[2];
-        console.log(articles)
+        console.log(articles[0].url)
 
         this.setState({
           isLoading: false,
@@ -75,7 +75,7 @@ class News extends Component {
       <div id="news">
         <h6>News</h6>
         <div className="box">
-         {this.state.articles.map(article => <ArticleRow key={this.state.articles.url} title={this.state.articles.title} url={this.state.articles.urlToImage} sources={this.state.articles.publishedAt} {...article} />)}
+         {this.state.articles.map(article => <ArticleRow key={Math.random()} title={this.state.articles.title} url={this.state.articles.url} urlToImage={this.state.articles.urlToImage} sources={this.state.articles.publishedAt} {...article} />)}
        </div>    
       </div>
      );
