@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import "./news.css";
+import newsIcons from './newsIcons';
 
 const ArticleRow = ({title, url, urlToImage, sources }) => {
+  if (urlToImage == null) {
+    const imageNumber = Math.floor(Math.random() * Object.keys(newsIcons).length) + 1  
+    urlToImage = newsIcons[imageNumber];
+  }
+ 
   return (
     <div className="row article-row">
         <div className="col-sm-3">

@@ -14,7 +14,7 @@ const App = () => (
     <Wrapper>
       <Navbar />
       <Route exact path="/" component={Landing} />
-      <div className="container">
+      <div className="susi">
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
       </div>
