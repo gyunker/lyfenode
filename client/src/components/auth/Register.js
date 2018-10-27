@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
 import TextFieldGroup from "../common/TextFieldGroup";
-import axios from "axios";
+import { connect } from "react-redux";
+import { registerUser } from "../../actions/authActions";
 
 class Register extends Component {
   constructor() {
@@ -18,6 +20,12 @@ class Register extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -32,10 +40,7 @@ class Register extends Component {
       password2: this.state.password2
     };
 
-    axios
-      .post("/api/users/register", newUser)
-      .then(res => console.log(res.data));
-    // .catch(err => console.log(err.res.data));
+    this.props.registerUser(newUser, this.props.history);
   }
 
   render() {
@@ -48,7 +53,7 @@ class Register extends Component {
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Sign Up</h1>
               <p className="lead text-center">Create your Lyfe Node account</p>
-              <form onSubmit={this.onSubmit}>
+              <form noValidate onSubmit={this.onSubmit}>
                 <TextFieldGroup
                   placeholder="Name"
                   name="name"
@@ -97,4 +102,12 @@ Register.propTypes = {
   errors: PropTypes.object.isRequired
 };
 
-export default Register;
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
+
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(withRouter(Register));
