@@ -9,6 +9,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Landing from "./components/Landing/Landing";
 import Dashboard from "./components/Dashboard/Dashboard";
+import HealthChart from "./components/HealthChart/HealthChart";
 import "./App.css";
 
 const App = () => (
@@ -22,6 +23,7 @@ const App = () => (
           <Route exact path="/login" component={Login} />
         </div>
         <Route exact path="/dashboard" component={Dashboard} />
+        <Route path="/health/weight" render={() => <HealthChart />} />
       </Wrapper>
     </Router>
   </Provider>

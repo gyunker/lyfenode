@@ -12,11 +12,15 @@ const HealthSchema = new Schema({
     type: String,
     required: true
   },
+  sampleValue: {
+    type: Schema.Types.Number,
+    required: true
+  },
   date: {
     type: Date,
     default: Date.now
   }
 });
 
-const Health = mongoose.model("users", HealthSchema);
+const Health = mongoose.model("health", HealthSchema);
 module.exports = Health;
