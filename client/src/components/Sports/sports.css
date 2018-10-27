@@ -5,6 +5,11 @@
   margin-right: 32px;
 }
 
+#sports .box:hover {
+  box-shadow: 0px 2px 4px 0px rgba(82, 82, 82, 0.75);
+  border: 0;
+}
+
 #sports .sport-row > div {
   text-align: left;
   border-bottom: 0;

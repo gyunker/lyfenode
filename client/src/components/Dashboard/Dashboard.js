@@ -29,9 +29,6 @@ class Dashboard extends Component {
           <div className="col-sm-6 text-center p-3">
           <News />
           </div>
-          {/* <div className="col-sm-3 border-l text-center p-3">
-          <News2 />
-          </div> */}
           <div className="col-sm-3 border-l text-center p-3">
             <Stocks />
           </div>
