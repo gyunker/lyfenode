@@ -5,7 +5,7 @@ import HealthSummary from "../HealthSummary/HealthSummary";
 import Weather from "../Weather/Weather"
 import QuickLinks from "../QuickLinks/QuickLinks"
 import Stocks from "../Stocks/Stocks";
-import NewsSummary from "../NewsSummary/NewsSummary";
+import News from "../News/News";
 // import News2 from "../News2/News2";
 import Updates from "../Updates/Updates";
 import Sports from "../Sports/Sports";
@@ -27,7 +27,7 @@ class Dashboard extends Component {
         </div>
         <div className="row">
           <div className="col-sm-6 text-center p-3">
-          <NewsSummary />
+          <News />
           </div>
           <div className="col-sm-3 border-l text-center p-3">
             <Stocks />
