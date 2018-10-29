@@ -13,29 +13,37 @@ router.post(
       return res.status(401).json({ success: false });
     }
 
-    const { weight } = req.body;
+    const { weight, workout, drink, sleep } = req.body;
 
-    if (!weight) {
+    if (!weight && !workout && !drink && !sleep) {
       return res.status(400).json({ success: false });
     }
 
-    await Health.insertMany([{ user: req.user.id, sampleField: 'weight', sampleValue: weight }]);
+    const fields = { weight, sleep, workout, drink }
+
+    for (const [ sampleField, sampleValue ] of Object.entries(fields)) {
+      if (!sampleValue) continue;
+
+      await Health.insertMany([{ user: req.user.id, sampleField, sampleValue }]);
+    }
 
     res.json({ success: true });
   }
 );
 
 router.get(
-  "/weight",
+  "/chart/:sampleField",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     if (!req.user) {
       return res.status(401).json({ success: false });
     }
 
-    const weights = (await Health.find({ sampleField: 'weight' }).sort({ date: 'desc' }).limit(20)).reverse();
+    const { sampleField } = req.params
 
-    res.json(weights)
+    const sampleValues = (await Health.find({ sampleField }).sort({ date: 'desc' }).limit(20)).reverse();
+
+    res.json(sampleValues)
   }
 );
 

@@ -36,7 +36,7 @@ const App = () => (
           <Route exact path="/login" component={Login} />
         </div>
         <Route exact path="/dashboard" component={Dashboard} />
-        <Route path="/health/weight" render={() => <HealthChart />} />
+        <Route path="/health/:field" render={({ match }) => <HealthChart sampleField={match.params.field}/>} />
       </Wrapper>
     </Router>
   </Provider>

@@ -11,31 +11,23 @@ class HealthChart extends Component {
 
     this.state = {
       isLoading: true
-    }; 
+    };
   }
 
   componentDidMount() {
-    fetch('/api/users/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: 'test@test.com', password: 'testtest' })
+    fetch('/api/health/chart/' + this.props.sampleField, {
+      method: 'GET',
+      headers: { Authorization: window.localStorage.getItem('jwtToken') },
     })
     .then(res => res.json())
-    .then(({ token }) =>
-      fetch('/api/health/weight', {
-        method: 'GET',
-        headers: { Authorization: token }
-      })
-      .then(res => res.json())
-      .then(data => {
-        const chartData = data.map(data => [data.date, data.sampleValue])
+    .then(data => {
+      const chartData = data.map(data => [data.date, data.sampleValue])
 
-        this.setState({
-          isLoading: false,
-          chartData
-        });
-      })
-    )
+      this.setState({
+        isLoading: false,
+        chartData
+      });
+    })
     .catch(err => {
       console.error(err);
       this.setState({
