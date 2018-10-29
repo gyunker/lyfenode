@@ -5,6 +5,7 @@ import Logo from "../../img/lyfenode-logo.png";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import { clearCurrentProfile } from "../../actions/profileActions";
 
 class Navbar extends Component {
   onLogoutClick(e) {
@@ -100,5 +101,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { logoutUser }
+  { logoutUser, clearCurrentProfile }
 )(Navbar);
