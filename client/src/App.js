@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 import jwt_decode from "jwt-decode";
@@ -14,7 +14,9 @@ import Login from "./components/auth/Login";
 import Landing from "./components/Landing/Landing";
 import Dashboard from "./components/Dashboard/Dashboard";
 import HealthChart from "./components/HealthChart/HealthChart";
+import CreateProfile from "./components/Create-profile/CreateProfile";
 import "./App.css";
+import PrivateRoute from "./components/common/PrivateRoute";
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -46,8 +48,15 @@ const App = () => (
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
         </div>
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route path="/health/weight" render={() => <HealthChart />} />
+        <Switch>
+          <PrivateRoute exact path="/dashboard" component={Dashboard} />
+        </Switch>
+        <Switch>
+          <PrivateRoute path="/health/weight" render={() => <HealthChart />} />
+        </Switch>
+        <Switch>
+          <PrivateRoute path="/create-profile" component={CreateProfile} />
+        </Switch>
       </Wrapper>
     </Router>
   </Provider>

@@ -77,12 +77,6 @@ class Navbar extends Component {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
             {isAuthenticated ? authLinks : guestLinks}
-            {/* <li className="nav-item">
-              <a className="nav-link" href="/">
-                <i className="fas fa-user-alt" />
-                Yunker
-              </a>
-            </li> */}
           </ul>
         </div>
       </nav>
