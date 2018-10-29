@@ -7,8 +7,8 @@ import WeatherIcon10d from './10d.png';
 import WeatherIcon11d from './11d.png';
 import WeatherIcon13d from './13d.png';
 import WeatherIcon50d from './50d.png';
-import WeatherIcon01n from './01n.png';
-import WeatherIcon02n from './02n.png';
+// import WeatherIcon01n from './01n.png';
+// import WeatherIcon02n from './02n.png';
 
 export default {
     '01d': WeatherIcon01d,
@@ -20,8 +20,8 @@ export default {
     '11d': WeatherIcon11d,
     '13d': WeatherIcon13d,
     '50d': WeatherIcon50d,
-    '01n': WeatherIcon01n,
-    '02n': WeatherIcon02n,
+    '01n': WeatherIcon01d,
+    '02n': WeatherIcon02d,
     '03n': WeatherIcon03d,
     '04n': WeatherIcon04d,
     '09n': WeatherIcon09d,

@@ -15,7 +15,9 @@
   }
 
 #articleImage {
-  max-width: 100%
+  width: auto;
+  height: 50px;
+  /* background: url("https://vignette.wikia.nocookie.net/criminal-case-grimsborough/images/d/d9/News-Icon.png/revision/latest?cb=20140921131511") no-repeat; */
 }
 
   #news h6 {
