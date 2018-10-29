@@ -57,6 +57,9 @@ const App = () => (
         <Switch>
           <PrivateRoute path="/create-profile" component={CreateProfile} />
         </Switch>
+       <Switch>
+          <PrivateRoute path="/health/:field" render={({ match }) => <HealthChart sampleField={match.params.field}/>} />
+        </Switch>
       </Wrapper>
     </Router>
   </Provider>
