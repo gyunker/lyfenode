@@ -14,7 +14,8 @@ import Login from "./components/auth/Login";
 import Landing from "./components/Landing/Landing";
 import Dashboard from "./components/Dashboard/Dashboard";
 import HealthChart from "./components/HealthChart/HealthChart";
-import CreateProfile from "./components/Create-profile/CreateProfile";
+import CreateProfile from "./components/Profile/CreateProfile/CreateProfile";
+import EditProfile from "./components/Profile/EditProfile/EditProfile";
 import "./App.css";
 import PrivateRoute from "./components/common/PrivateRoute";
 
@@ -48,6 +49,13 @@ const App = () => (
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
         </div>
+        {/* TODO: Use Private route */}
+        <Route
+          path="/health/:field"
+          render={({ match }) => (
+            <HealthChart sampleField={match.params.field} />
+          )}
+        />
         <Switch>
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
         </Switch>
@@ -57,9 +65,17 @@ const App = () => (
         <Switch>
           <PrivateRoute path="/create-profile" component={CreateProfile} />
         </Switch>
-       <Switch>
-          <PrivateRoute path="/health/:field" render={({ match }) => <HealthChart sampleField={match.params.field}/>} />
+        <Switch>
+          <PrivateRoute path="/edit-profile" component={EditProfile} />
         </Switch>
+        {/* <Switch>
+          <PrivateRoute
+            path="/health/:field"
+            render={({ match }) => (
+              <HealthChart sampleField={match.params.field} />
+            )}
+          />
+        </Switch> */}
       </Wrapper>
     </Router>
   </Provider>
