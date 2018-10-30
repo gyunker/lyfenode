@@ -5,6 +5,7 @@ import Logo from "../../img/lyfenode-logo.png";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import { clearCurrentProfile } from "../../actions/profileActions";
 
 class Navbar extends Component {
   onLogoutClick(e) {
@@ -76,12 +77,6 @@ class Navbar extends Component {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
             {isAuthenticated ? authLinks : guestLinks}
-            {/* <li className="nav-item">
-              <a className="nav-link" href="/">
-                <i className="fas fa-user-alt" />
-                Yunker
-              </a>
-            </li> */}
           </ul>
         </div>
       </nav>
@@ -100,5 +95,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { logoutUser }
+  { logoutUser, clearCurrentProfile }
 )(Navbar);

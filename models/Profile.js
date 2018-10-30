@@ -13,16 +13,13 @@ const ProfileSchema = new Schema({
     required: true,
     max: 40
   },
-  // company: {
-  //   type: String,
-  // },
-  // website: {
-  //   type: String,
-  // },
   location: {
     type: String
   },
-  quickLinks: {
+  zipcode: {
+    type: String
+  },
+  quicklinks: {
     facebook: {
       type: String
     },
@@ -30,6 +27,18 @@ const ProfileSchema = new Schema({
       type: String
     },
     instagram: {
+      type: String
+    },
+    youtube: {
+      type: String
+    },
+    linkedin: {
+      type: String
+    },
+    espn: {
+      type: String
+    },
+    pandora: {
       type: String
     }
   },
