@@ -56,13 +56,16 @@ router.post(
 
     // Quick Links
     profileFields.quicklinks = {};
-    if (req.body.youtube) profileFields.social.youtube = req.body.youtube;
-    if (req.body.twitter) profileFields.social.twitter = req.body.twitter;
-    if (req.body.facebook) profileFields.social.facebook = req.body.facebook;
-    if (req.body.linkedin) profileFields.social.linkedin = req.body.linkedin;
-    if (req.body.instagram) profileFields.social.instagram = req.body.instagram;
-    if (req.body.pandora) profileFields.social.instagram = req.body.pandora;
-    if (req.body.espn) profileFields.social.instagram = req.body.espn;
+    if (req.body.youtube) profileFields.quicklinks.youtube = req.body.youtube;
+    if (req.body.twitter) profileFields.quicklinks.twitter = req.body.twitter;
+    if (req.body.facebook)
+      profileFields.quicklinks.facebook = req.body.facebook;
+    if (req.body.linkedin)
+      profileFields.quicklinks.linkedin = req.body.linkedin;
+    if (req.body.instagram)
+      profileFields.quicklinks.instagram = req.body.instagram;
+    if (req.body.pandora) profileFields.quicklinks.instagram = req.body.pandora;
+    if (req.body.espn) profileFields.quicklinks.instagram = req.body.espn;
 
     Profile.findOne({ user: req.user.id }).then(profile => {
       if (profile) {
@@ -86,6 +89,21 @@ router.post(
           new Profile(profileFields).save().then(profile => res.json(profile));
         });
       }
+    });
+  }
+);
+
+// @route   DELETE api/profile
+// @desc    Delete user and profile
+// @access  Private
+router.delete(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Profile.findOneAndRemove({ user: req.user.id }).then(() => {
+      User.findOneAndRemove({ _id: req.user.id }).then(() =>
+        res.json({ success: true })
+      );
     });
   }
 );

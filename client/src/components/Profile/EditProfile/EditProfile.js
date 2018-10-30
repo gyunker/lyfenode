@@ -2,13 +2,18 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
-import TextFieldGroup from "../common/TextFieldGroup";
-import InputGroup from "../common/InputGroup";
-import { createProfile } from "../../actions/profileActions";
+import TextFieldGroup from "../../common/TextFieldGroup";
+import InputGroup from "../../common/InputGroup";
+import {
+  createProfile,
+  getCurrentProfile,
+  deleteAccount
+} from "../../../actions/profileActions";
 
-import Pandora from "../../img/pandora-logo.png";
-import ESPN from "../../img/espn-logo.png";
-import "./CreateProfile.css";
+import Pandora from "../../../img/pandora-logo.png";
+import ESPN from "../../../img/espn-logo.png";
+import "./EditProfile.css";
+import isEmpty from "../../../validation/is-empty";
 
 class CreateProfile extends Component {
   constructor(props) {
@@ -32,9 +37,57 @@ class CreateProfile extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.props.getCurrentProfile();
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
+    }
+    if (nextProps.profile.profile) {
+      const profile = nextProps.profile.profile;
+
+      // If profile field doesnt exist, make empty string
+      profile.location = !isEmpty(profile.location) ? profile.location : "";
+      profile.quicklinks = !isEmpty(profile.quicklinks)
+        ? profile.quicklinks
+        : {};
+      profile.twitter = !isEmpty(profile.quicklinks.twitter)
+        ? profile.quicklinks.twitter
+        : "";
+      profile.facebook = !isEmpty(profile.quicklinks.facebook)
+        ? profile.quicklinks.facebook
+        : "";
+      profile.linkedin = !isEmpty(profile.quicklinks.linkedin)
+        ? profile.quicklinks.linkedin
+        : "";
+      profile.youtube = !isEmpty(profile.quicklinks.youtube)
+        ? profile.quicklinks.youtube
+        : "";
+      profile.instagram = !isEmpty(profile.quicklinks.instagram)
+        ? profile.quicklinks.instagram
+        : "";
+      profile.pandora = !isEmpty(profile.quicklinks.pandora)
+        ? profile.quicklinks.pandora
+        : "";
+      profile.espn = !isEmpty(profile.quicklinks.espn)
+        ? profile.quicklinks.espn
+        : "";
+
+      // Set component fields state
+      this.setState({
+        handle: profile.handle,
+        location: profile.location,
+        zipcode: profile.zipcode,
+        twitter: profile.twitter,
+        facebook: profile.facebook,
+        linkedin: profile.linkedin,
+        youtube: profile.youtube,
+        instagram: profile.instagram,
+        pandora: profile.pandora,
+        espn: profile.espn
+      });
     }
   }
 
@@ -59,6 +112,10 @@ class CreateProfile extends Component {
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
+  }
+
+  onDeleteClick(e) {
+    this.props.deleteAccount();
   }
 
   render() {
@@ -142,10 +199,7 @@ class CreateProfile extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Create Your Profile</h1>
-              <p className="lead text-center">
-                Let's get some information to make your profile stand out
-              </p>
+              <h1 className="display-4 text-center">Edit Profile</h1>
               <small className="d-block pb-3">* = required fields</small>
               <form onSubmit={this.onSubmit}>
                 <TextFieldGroup
@@ -195,6 +249,12 @@ class CreateProfile extends Component {
                   className="btn btn-info btn-block mt-4"
                 />
               </form>
+              <button
+                onClick={this.onDeleteClick.bind(this)}
+                className="btn btn-danger"
+              >
+                Delete My Account
+              </button>
             </div>
           </div>
         </div>
@@ -204,6 +264,9 @@ class CreateProfile extends Component {
 }
 
 CreateProfile.propTypes = {
+  createProfile: PropTypes.func.isRequired,
+  getCurrentProfile: PropTypes.func.isRequired,
+  deleteAccount: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
@@ -215,5 +278,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { createProfile }
+  { createProfile, getCurrentProfile, deleteAccount }
 )(withRouter(CreateProfile));
