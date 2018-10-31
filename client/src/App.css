@@ -34,12 +34,11 @@
   height: 40px;
 }
 
-#register {
+#signup {
   position: relative;
   background-size: cover;
   background-position: center;
-  background-color: rgba(0, 0, 0, 0.7);
-  background: url("./img/instagram-logo.png") no-repeat;
+  background-color: rgba(158, 26, 26, 0.7);
   max-width: 400px;
   margin-bottom: 50px;
 }
