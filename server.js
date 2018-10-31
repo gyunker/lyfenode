@@ -7,6 +7,7 @@ const path = require("path");
 const users = require("./routes/api/users");
 const profile = require("./routes/api/profile");
 const health = require("./routes/api/health");
+const financial = require("./routes/api/financial");
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -53,6 +54,7 @@ require("./config/passport")(passport);
 app.use("/api/users", users);
 app.use("/api/profile", profile);
 app.use("/api/health", health);
+app.use("/api/financial", financial);
 
 // Server static assets if in production
 if (process.env.NODE_ENV === "production") {
