@@ -53,12 +53,12 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-      <section className="susibody">
+      <div className="susibody">
       <div id="register">
-        <div className="container">
+        <div className="container" id="susi">
           <div className="row">
-            <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Sign Up</h1>
+            <div className="col-md-10 m-auto">
+              <h1 className="display-4 text-center" >Sign Up</h1>
               <p className="lead text-center">Create your Lyfe Node account</p>
               <form noValidate onSubmit={this.onSubmit}>
                 <TextFieldGroup
@@ -99,62 +99,7 @@ class Register extends Component {
           </div>
         </div>
         </div>
-        <section id="services">
-    <div className="container">
-      <div className="row">
-        <div className="col-lg-12 text-center">
-          <h2 className="section-heading">Lyfenode Overview</h2>
-        </div>
       </div>
-    </div>
-    <div className="container">
-      <div className="row">
-        <div className="col-lg-3 col-md-6 text-center">
-          <div className="service-box mt-5 mx-auto">
-            <i className="fa fa-4x fa-briefcase text-primary mb-3 sr-icons"></i>
-            <h3 className="mb-3">Experience</h3>
-            <p className="text-muted mb-0">13+ Years</p>
-              <li className="text-muted mb-0">Web Analytics</li>
-              <li className="text-muted mb-0">Growth Manager</li>
-              <li className="text-muted mb-0">Product Management</li>
-              <li className="text-muted mb-0">Go-to-Market Lead</li>
-          </div>
-        </div>
-        <div className="col-lg-3 col-md-6 text-center">
-          <div className="service-box mt-5 mx-auto">
-            <i className="fa fa-4x fa-graduation-cap text-primary mb-3 sr-icons"></i>
-            <h3 className="mb-3">Education</h3>
-            <li className="text-muted mb-0">Marquette University</li>
-              <li className="text-muted mb-0">Kellogg School of Management</li>
-              <li className="text-muted mb-0">UC Berkeley Coding</li>
-              </div>
-        </div>
-        <div className="col-lg-3 col-md-6 text-center">
-          <div className="service-box mt-5 mx-auto">
-            <i className="fa fa-4x fa-cogs text-primary mb-3 sr-icons"></i>
-            <h3 className="mb-3">Approach</h3>
-            <li className="text-muted mb-0">Data Driven</li>
-            <li className="text-muted mb-0">Collaborative</li>
-            <li className="text-muted mb-0">Results Oriented</li>
-            <li className="text-muted mb-0">Gritty</li>
-          </div>
-        </div>
-        <div className="col-lg-3 col-md-6 text-center">
-          <div className="service-box mt-5 mx-auto">
-            <i className="fa fa-4x fa-heart text-primary mb-3 sr-icons"></i>
-            <h3 className="mb-3">Interests</h3>
-            <li className="text-muted mb-0">Wife (Pooja)</li>
-            <li className="text-muted mb-0">Dog (Prince)</li>
-            <li className="text-muted mb-0">Basketball</li>
-            <li className="text-muted mb-0">Learning</li>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-      
-    
-      </section>
  
     );
   }
