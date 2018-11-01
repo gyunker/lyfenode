@@ -4,7 +4,6 @@ import FinancialRow from "./FinancialRow/FinancialRow";
 import moment from "moment";
 import FinancialChart from "./FinancialChart/FinancialChart";
 import Finance from "../../utils/Finance";
-import "./FinancialOverview.css";
 
 class FinancialOverview extends Component {
   constructor() {
@@ -18,8 +17,8 @@ class FinancialOverview extends Component {
       Payment: [],
       Travel: [],
       TransactionTotals: {}
+    };
   }
-
   componentDidMount() {
     var jwt = localStorage.getItem("jwtToken");
     axios
@@ -39,6 +38,7 @@ class FinancialOverview extends Component {
       })
       .catch(err => console.log(err));
   }
+
   render() {
     return this.state.isLoading ? this.renderLoading() : this.renderLoaded();
   }
@@ -58,77 +58,41 @@ class FinancialOverview extends Component {
         <div className="row financialChart">
           <FinancialChart chartData={this.state.TransactionTotals} />
         </div>
-        <div className="row">
-          <div className="col-sm-12">
-            <table className="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">Categories</th>
-                  <th scope="col">{moment().format("MMMM")} 2018</th>
-                  <th scope="col">vs LM</th>
-                  <th scope="col">vs 3mo Avg</th>
-                  <th scope="col">YTD</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Home & Bills</th>
-                  <FinancialRow category={this.state.Payment} />
-                </tr>
-                <tr>
-                  <th scope="row">Food</th>
-                  <FinancialRow category={this.state.Food} />
-                </tr>
-                <tr>
-                  <th scope="row">Travel & Ent</th>
-                  <FinancialRow category={this.state.Travel} />
-                </tr>
-                <tr>
-                  <th scope="row">Shopping</th>
-                  <FinancialRow category={this.state.Shops} />
-                </tr>
-                <tr>
-                  <th scope="row">Recreation</th>
-                  <FinancialRow category={this.state.Recreation} />
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div id="financialOverview">
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Categories</th>
+                <th scope="col">{moment().format("MMMM")} 2018</th>
+                <th scope="col">vs LM</th>
+                <th scope="col">vs 3mo Avg</th>
+                <th scope="col">YTD</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Home & Bills</th>
+                <FinancialRow category={this.state.Payment} />
+              </tr>
+              <tr>
+                <th scope="row">Food</th>
+                <FinancialRow category={this.state.Food} />
+              </tr>
+              <tr>
+                <th scope="row">Travel & Ent</th>
+                <FinancialRow category={this.state.Travel} />
+              </tr>
+              <tr>
+                <th scope="row">Shopping</th>
+                <FinancialRow category={this.state.Shops} />
+              </tr>
+              <tr>
+                <th scope="row">Recreation</th>
+                <FinancialRow category={this.state.Recreation} />
+              </tr>
+            </tbody>
+          </table>
         </div>
-      <div id="financialOverview">
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">Categories</th>
-              <th scope="col">{moment().format("MMMM")} 2018</th>
-              <th scope="col">vs LM</th>
-              <th scope="col">vs 3mo Avg</th>
-              <th scope="col">YTD</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Home & Bills</th>
-              <FinancialRow category={this.state.Payment} />
-            </tr>
-            <tr>
-              <th scope="row">Food</th>
-              <FinancialRow category={this.state.Food} />
-            </tr>
-            <tr>
-              <th scope="row">Travel & Ent</th>
-              <FinancialRow category={this.state.Travel} />
-            </tr>
-            <tr>
-              <th scope="row">Shopping</th>
-              <FinancialRow category={this.state.Shops} />
-            </tr>
-            <tr>
-              <th scope="row">Recreation</th>
-              <FinancialRow category={this.state.Recreation} />
-            </tr>
-          </tbody>
-        </table>
       </div>
     );
   }

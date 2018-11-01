@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Line, Bar, Doughnut } from "react-chartjs-2";
 import moment from "moment";
 import numeral from "numeral";
+import "../FinancialOverview.css";
 
 class FinancialChart extends Component {
   constructor(props) {

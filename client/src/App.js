@@ -77,7 +77,6 @@ const App = () => (
             )}
           />
         // </Switch> */}
-        // </Switch> */}
         <Route exact path="/financialoverview" component={FinancialOverview} />
       </Wrapper>
     </Router>
