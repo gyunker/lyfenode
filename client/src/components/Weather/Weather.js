@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./weather.css";
 import icons from './icons';
+import { connect } from "react-redux";
+import { getCurrentProfile } from "../../actions/profileActions";
 
 const WeatherColumn = ({ timestamp, icon, temp, description }) => {
   const dayNameAbbr = new Date(timestamp * 1000).toString().split(' ').shift();
@@ -17,13 +19,12 @@ class Weather extends Component {
     super();
 
     this.state = {
-      isLoading: true,
-      zip: 94403
+      isLoading: true
     };
   }
 
   componentDidMount() {
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?zip=${this.state.zip},us&units=imperial&appid=1074c88f231350293c937f07686ff85a`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?zip=${this.props.profile.zipcode},us&units=imperial&appid=1074c88f231350293c937f07686ff85a`)
       .then(res => res.json())
       .then(data => {
         const { city, list } = data
@@ -44,7 +45,7 @@ class Weather extends Component {
           isLoading: false,
           data: [],
           city: { name: 'Error' },
-          err
+          error: err
         });
       });
   }
@@ -62,9 +63,11 @@ class Weather extends Component {
     );
   }
 
-
-
   renderLoaded() {
+    if (this.state.error) {
+      return <div id="weather">Error</div>
+    }
+
     const firstDay = new Date(this.state.data[0].dt * 1000).toString().split(' ').shift();
     const lastDay = new Date(this.state.data[3].dt * 1000).toString().split(' ').shift();
 
@@ -72,7 +75,7 @@ class Weather extends Component {
       <div id="weather">
         <h6>{this.state.city.name + " (" + firstDay + " - " + lastDay + ")"}</h6>
         <div className="row">
-        
+
           {this.state.data.map(data => <WeatherColumn key={data.dt} timestamp={data.dt} temp={data.main.temp} icon={data.weather[0].icon} description={data.weather[0].description} />)}
         </div>
       </div>
@@ -80,5 +83,11 @@ class Weather extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  profile: state.profile.profile
+});
 
-export default Weather;
+export default connect(
+  mapStateToProps,
+  { getCurrentProfile }
+)(Weather);
