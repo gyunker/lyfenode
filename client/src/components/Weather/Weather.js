@@ -23,7 +23,7 @@ class Weather extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?zip=${this.state.zip},us&units=imperial&appid=1074c88f231350293c937f07686ff85a`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?zip=${this.state.zip},us&units=imperial&appid=1074c88f231350293c937f07686ff85a`)
       .then(res => res.json())
       .then(data => {
         const { city, list } = data
