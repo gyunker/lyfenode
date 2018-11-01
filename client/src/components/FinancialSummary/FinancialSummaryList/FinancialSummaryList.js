@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import "../financialsummary.css";
 
 class FinancialSummaryList extends Component {
-  componentDidMount() {
-    console.log("List Mounted");
-  }
   render() {
     return (
       <React.Fragment>

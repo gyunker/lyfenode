@@ -7,7 +7,8 @@ class Updates extends React.Component {
     workout: '',
     weight: '',
     drink: '',
-    sleep: ''
+    sleep: '',
+    heart: ''
   };
 
   handleFormInput = (event) => {
