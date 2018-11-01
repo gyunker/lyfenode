@@ -18,11 +18,6 @@ class FinancialSummaryList extends Component {
         <p>
           <i className="fas fa-circle green" />
           <i className="fas fa-clipboard-list" />
-          Taxes
-        </p>
-        <p>
-          <i className="fas fa-circle green" />
-          <i className="fas fa-clipboard-list" />
           Food
         </p>
         <p>
@@ -36,24 +31,9 @@ class FinancialSummaryList extends Component {
           Shopping
         </p>
         <p>
-          <i className="fas fa-circle green" />
-          <i className="fas fa-clipboard-list" />
-          Health
-        </p>
-        <p>
-          <i className="fas fa-circle green" />
-          <i className="fas fa-clipboard-list" />
-          Auto
-        </p>
-        <p>
-          <i className="fas fa-circle green" />
-          <i className="fas fa-clipboard-list" />
-          Gifts
-        </p>
-        <p>
           <i className="fas fa-circle red" />
           <i className="fas fa-clipboard-list" />
-          Dependents
+          Recreation
         </p>
       </React.Fragment>
     );

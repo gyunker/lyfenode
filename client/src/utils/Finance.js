@@ -1,4 +1,4 @@
-// import moment from "moment";
+import numeral from "numeral";
 
 const Finance = {
   GetTransactionTotal: function(TArray) {
@@ -54,6 +54,39 @@ const Finance = {
       (Math.floor(Math.random() * 1000) - 500) -
       currentMonth
     );
+  },
+  GetTransactionTotalsObject(TArray) {
+    let shops = TArray.filter(x => x.category === "Shops");
+    let food = TArray.filter(x => x.category === "Food and Drink");
+    let recreation = TArray.filter(x => x.category === "Recreation");
+    let bills = TArray.filter(x => x.category === "Payment");
+    let travel = TArray.filter(x => x.category === "Travel");
+    shops = this.GetTransactions(shops);
+    shops = this.GetTransactionTotal(
+      this.ParseTransactionAmounts(this.GetCurrentMonthTotal(shops[0]))
+    );
+
+    food = this.GetTransactions(food);
+    food = this.GetTransactionTotal(
+      this.ParseTransactionAmounts(this.GetCurrentMonthTotal(food[0]))
+    );
+
+    recreation = this.GetTransactions(recreation);
+    recreation = this.GetTransactionTotal(
+      this.ParseTransactionAmounts(this.GetCurrentMonthTotal(recreation[0]))
+    );
+
+    bills = this.GetTransactions(bills);
+    bills = this.GetTransactionTotal(
+      this.ParseTransactionAmounts(this.GetCurrentMonthTotal(bills[0]))
+    );
+
+    travel = this.GetTransactions(travel);
+    travel = this.GetTransactionTotal(
+      this.ParseTransactionAmounts(this.GetCurrentMonthTotal(travel[0]))
+    );
+    let transactions = [bills, food, travel, shops, recreation];
+    return transactions;
   }
 };
 
