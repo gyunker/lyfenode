@@ -50,18 +50,8 @@ const App = () => (
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
         </div>
-        {/* TODO: Use Private route */}
-        <Route
-          path="/health/:field"
-          render={({ match }) => (
-            <HealthChart sampleField={match.params.field} />
-          )}
-        />
         <Switch>
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
-        </Switch>
-        <Switch>
-          <PrivateRoute path="/health/weight" render={() => <HealthChart />} />
         </Switch>
         <Switch>
           <PrivateRoute path="/create-profile" component={CreateProfile} />
@@ -69,14 +59,9 @@ const App = () => (
         <Switch>
           <PrivateRoute path="/edit-profile" component={EditProfile} />
         </Switch>
-        {/* <Switch>
-          <PrivateRoute
-            path="/health/:field"
-            render={({ match }) => (
-              <HealthChart sampleField={match.params.field} />
-            )}
-          />
-        // </Switch> */}
+        <Switch>
+          <PrivateRoute path="/health/:field" component={HealthChart} />
+        </Switch>
         <Route exact path="/financialoverview" component={FinancialOverview} />
       </Wrapper>
     </Router>

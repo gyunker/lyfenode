@@ -3,56 +3,53 @@ import "./financialsummary.css";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import axios from "axios";
-import { logoutUser } from "../../actions/authActions";
 import FinancialSummaryList from "./FinancialSummaryList/FinancialSummaryList";
 import BankLinkButton from "../BankLinkButton/BankLinkButton";
 
 class FinancialSummary extends Component {
-  constructor(props) {
-    super(props);
-  }
   state = {
     access: this.props.auth.user.access
   };
 
+  componentWillUnmount() {
+    this.unmount = true;
+  }
+
   modifyAccessRights = access => {
-    this.setState({
-      access: access
-    });
+    if (!this.unmount) {
+      this.setState({
+        access: access
+      });
+    }
   };
 
   BankLinkOnSuccess = (token, metadata) => {
-    console.log("hit data");
-    var jwt = localStorage.getItem("jwtToken");
+    const jwt = localStorage.getItem('jwtToken');
+
     axios
       .get(`/api/financial/ex/${token}`, { headers: { Authorization: jwt } })
       .then(resp => {
-        localStorage.setItem("jwtToken", resp.data.token);
-        console.log(JSON.stringify(this.props));
+        localStorage.setItem('jwtToken', resp.data.token);
         this.modifyAccessRights(resp.data.token);
       })
       .catch(err => console.log(err));
   };
 
   render() {
-    console.log(`User Access: ${this.props.auth.user.access}`);
-    console.log(`User State Access: ${this.state.access}`);
     return (
       <div id="financialsummary">
         <h6>Financial Summary</h6>
-        {this.state.access ? (
-          <FinancialSummaryList />
-        ) : (
-          <BankLinkButton BankLinkOnSuccess={this.BankLinkOnSuccess} />
-        )}
+        {
+          this.state.access
+          ? <FinancialSummaryList />
+          : <BankLinkButton BankLinkOnSuccess={this.BankLinkOnSuccess} />
+        }
       </div>
     );
   }
 }
 
-// export default FinancialSummary;
 FinancialSummary.propTypes = {
-  logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
@@ -61,6 +58,5 @@ const mapStateToProps = state => ({
 });
 
 export default connect(
-  mapStateToProps,
-  { logoutUser }
+  mapStateToProps
 )(FinancialSummary);

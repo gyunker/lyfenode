@@ -21,28 +21,35 @@ class Stocks extends Component {
     };
   }
 
+  componentWillUnmount() {
+    this.unmount = true;
+  }
+
   componentDidMount() {
     fetch('https://api.iextrading.com/1.0/stock/market/batch?symbols=tsla,nflx,spy,adbe,fb,crm,goog,aapl,msft,amd&types=quote')
       .then(res => res.json())
       .then(data => {
+        const stocks = Object.values(data).map(stock => stock.quote);
 
-        const stocks = Object.values(data).map(stock => stock.quote)
-        this.setState({
-          isLoading: false,
-          stocks
-        });
+        if (!this.unmount) {
+          this.setState({
+            isLoading: false,
+            stocks
+          });
+        }
       })
       .catch(err => {
-        this.setState({
-          isLoading: false,
-          err
-        });
+        if (!this.unmount) {
+          this.setState({
+            isLoading: false,
+            err
+          });
+        }
       });
   }
 
   render() {
     return this.state.isLoading ? this.renderLoading() : this.renderLoaded();
-
   }
 
   renderLoading() {
@@ -64,6 +71,7 @@ class Stocks extends Component {
             <div className="col-sm-3">Change</div>
             <div className="col-sm-3">% Chg</div>
           </div>
+
           {this.state.stocks.map(stock => <StockRow key={stock.symbol} {...stock} />)}
         </div>
       </div>

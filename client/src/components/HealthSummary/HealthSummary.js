@@ -18,7 +18,7 @@ class HealthSummary extends Component {
 
         <Link to="/health/workout">
           <p>
-            <i className="fas fa-circle red" />
+            <i className="fas fa-circle green" />
             <i className="fas fa-clipboard-list" />
             Work Outs
           </p>
@@ -37,6 +37,14 @@ class HealthSummary extends Component {
             <i className="fas fa-circle green" />
             <i className="fas fa-clipboard-list" />
             Sleep
+          </p>
+        </Link>
+
+        <Link to="/health/heart">
+          <p>
+            <i className="fas fa-circle green" />
+            <i className="fas fa-heart" />
+            Heart Rate
           </p>
         </Link>
       </div>

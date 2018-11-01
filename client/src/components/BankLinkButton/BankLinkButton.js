@@ -4,10 +4,6 @@ import PropTypes from "prop-types";
 const PUBLIC_KEY = "3db111bbd39b28e327c069dd47665f";
 
 class BankLinkButton extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <React.Fragment>
