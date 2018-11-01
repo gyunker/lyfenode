@@ -16,6 +16,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import HealthChart from "./components/HealthChart/HealthChart";
 import CreateProfile from "./components/Profile/CreateProfile/CreateProfile";
 import EditProfile from "./components/Profile/EditProfile/EditProfile";
+import FinancialOverview from "./components/FinancialOverview/FinancialOverview";
 import "./App.css";
 import PrivateRoute from "./components/common/PrivateRoute";
 
@@ -75,7 +76,9 @@ const App = () => (
               <HealthChart sampleField={match.params.field} />
             )}
           />
-        </Switch> */}
+        // </Switch> */}
+        // </Switch> */}
+        <Route exact path="/financialoverview" component={FinancialOverview} />
       </Wrapper>
     </Router>
   </Provider>

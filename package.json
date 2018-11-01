@@ -11,6 +11,7 @@
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "chart.js": "^2.7.3",
@@ -24,9 +25,12 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "path": "^0.12.7",
+    "plaid": "^2.9.0",
     "react": "^16.5.2",
+    "react-chartjs-2": "^2.7.4",
     "react-chartkick": "^0.3.0",
     "react-dom": "^16.6.0",
+    "react-plaid-link": "^1.0.3",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.4",
