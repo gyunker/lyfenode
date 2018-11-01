@@ -2,12 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import FinancialRow from "./FinancialRow/FinancialRow";
 import moment from "moment";
-<<<<<<< HEAD
 import FinancialChart from "./FinancialChart/FinancialChart";
 import Finance from "../../utils/Finance";
 import "./FinancialOverview.css";
-=======
->>>>>>> f9f7abe7339398ac2bd0043e89b78e4b1ff07e47
 
 class FinancialOverview extends Component {
   constructor() {
@@ -20,18 +17,7 @@ class FinancialOverview extends Component {
       Recreation: [],
       Payment: [],
       Travel: [],
-<<<<<<< HEAD
       TransactionTotals: {}
-=======
-      transactionTotal: {
-        shops: 0,
-        food: 0,
-        recreation: 0,
-        payment: 0,
-        travel: 0
-      }
->>>>>>> f9f7abe7339398ac2bd0043e89b78e4b1ff07e47
-    };
   }
 
   componentDidMount() {
@@ -46,24 +32,13 @@ class FinancialOverview extends Component {
           Recreation: resp.data.filter(x => x.category === "Recreation"),
           Payment: resp.data.filter(x => x.category === "Payment"),
           Travel: resp.data.filter(x => x.category === "Travel"),
-<<<<<<< HEAD
           isLoading: false,
           TransactionTotals: Finance.GetTransactionTotalsObject(resp.data)
         });
         console.log(this.state.TransactionTotals);
-=======
-          isLoading: false
-        });
->>>>>>> f9f7abe7339398ac2bd0043e89b78e4b1ff07e47
       })
       .catch(err => console.log(err));
   }
-
-<<<<<<< HEAD
-=======
-  Update;
-
->>>>>>> f9f7abe7339398ac2bd0043e89b78e4b1ff07e47
   render() {
     return this.state.isLoading ? this.renderLoading() : this.renderLoaded();
   }
@@ -74,7 +49,6 @@ class FinancialOverview extends Component {
 
   renderLoaded() {
     return (
-<<<<<<< HEAD
       <div id="financialOverview" className="container">
         <div className="row">
           <div className="col-sm-12 text-center mt-4">
@@ -121,7 +95,6 @@ class FinancialOverview extends Component {
             </table>
           </div>
         </div>
-=======
       <div id="financialOverview">
         <table className="table table-striped">
           <thead>
@@ -156,7 +129,6 @@ class FinancialOverview extends Component {
             </tr>
           </tbody>
         </table>
->>>>>>> f9f7abe7339398ac2bd0043e89b78e4b1ff07e47
       </div>
     );
   }

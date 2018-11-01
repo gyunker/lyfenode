@@ -76,13 +76,8 @@ const App = () => (
               <HealthChart sampleField={match.params.field} />
             )}
           />
-<<<<<<< HEAD
         // </Switch> */}
-=======
-        </Switch> */}
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route path="/health/weight" render={() => <HealthChart />} />
->>>>>>> f9f7abe7339398ac2bd0043e89b78e4b1ff07e47
+        // </Switch> */}
         <Route exact path="/financialoverview" component={FinancialOverview} />
       </Wrapper>
     </Router>
