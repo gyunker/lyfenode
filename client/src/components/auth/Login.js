@@ -52,13 +52,12 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="login">
         <div className="container" id="susi">
           <div className="row">
             <div className="col-md-10 m-auto">
-              <h1 className="display-4 text-center">Log In</h1>
+              <h1 className="display-4 text-center">Login</h1>
               <p className="lead text-center">
-                Sign in to your LyfeNode account
+                Sign in to your account
               </p>
               <form onSubmit={this.onSubmit}>
                 <TextFieldGroup
@@ -83,8 +82,7 @@ class Login extends Component {
             </div>
           </div>
         </div>
-      </div>
-    );
+     );
   }
 }
 
