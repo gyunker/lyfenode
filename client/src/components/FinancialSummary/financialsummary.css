@@ -24,6 +24,10 @@
   color: #aaa;
 }
 
+#financialsummary p:hover {
+  cursor: pointer;
+}
+
 .red {
   color: #f7b280;
 }
