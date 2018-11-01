@@ -53,13 +53,11 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="susibody">
-      <div id="register">
-        <div className="container" id="susi">
+         <div className="container" id="susi">
           <div className="row">
             <div className="col-md-10 m-auto">
               <h1 className="display-4 text-center" >Sign Up</h1>
-              <p className="lead text-center">Create your Lyfe Node account</p>
+              <p className="lead text-center">Create your account</p>
               <form noValidate onSubmit={this.onSubmit}>
                 <TextFieldGroup
                   placeholder="Name"
@@ -98,8 +96,6 @@ class Register extends Component {
             </div>
           </div>
         </div>
-        </div>
-      </div>
  
     );
   }

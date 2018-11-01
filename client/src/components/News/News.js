@@ -4,25 +4,23 @@ import newsIcons from './newsIcons';
 
 const ArticleRow = ({title, url, urlToImage, sources }) => {
   if (urlToImage == null) {
-    const imageNumber = Math.floor(Math.random() * Object.keys(newsIcons).length) + 1  
+    const imageNumber = Math.floor(Math.random() * Object.keys(newsIcons).length) + 1
     urlToImage = newsIcons[imageNumber];
   }
- 
+
   return (
     <div className="row article-row">
-        <div className="col-sm-3">
-          <img width="150" alt={sources} src={urlToImage} id="articleImage"/>
+      <div className="col-sm-3">
+        <img width="150" alt={sources} src={urlToImage} id="articleImage" />
+      </div>
+
+      <div className="col-sm-9">
+        <div className="row-sm-6" id="articleTitle">
+          <a href={url} target="_blank" rel="noopener noreferrer">{title}</a>
         </div>
-        <div className="col-sm-9">
-          {/* <div className="row-sm-3" id="articleSource">
-            {sources}
-          </div> */}
-          <div className="row-sm-6" id="articleTitle">
-            <a href={url} target="_blank" rel="noopener noreferrer">{title}</a>
-          </div>
-          <div className="row-sm-3" id="articleDescription">
-          </div>
-        </div>
+
+        <div className="row-sm-3" id="articleDescription"></div>
+      </div>
   </div>
   );
 }
@@ -32,7 +30,7 @@ const url = 'https://newsapi.org/v2/top-headlines?' +
           'pageSize=4&' +
           'apiKey=df5a2b75a8894969ae0159a6d43fa41c';
 
-  
+
 class News extends Component {
   constructor() {
     super();
@@ -42,30 +40,36 @@ class News extends Component {
     };
   }
 
+  componentWillUnmount() {
+    this.unmount = true;
+  }
+
   componentDidMount() {
     fetch(url)
       .then(res => res.json())
       .then(data => {
         const news = Object.values(data)
         const articles = news[2];
-        console.log(articles[0].url)
 
-        this.setState({
-          isLoading: false,
-          articles
-        });
+        if (!this.unmount) {
+          this.setState({
+            isLoading: false,
+            articles
+          });
+        }
       })
       .catch(err => {
-        this.setState({
-          isLoading: false,
-          err
-        });
+        if (!this.unmount) {
+          this.setState({
+            isLoading: false,
+            err
+          });
+        }
       });
   }
 
   render() {
     return this.state.isLoading ? this.renderLoading() : this.renderLoaded();
-
   }
 
   renderLoading() {
@@ -81,11 +85,11 @@ class News extends Component {
       <div id="news">
         <h6>News</h6>
         <div className="box">
-         {this.state.articles.map(article => <ArticleRow key={Math.random()} title={this.state.articles.title} url={this.state.articles.url} urlToImage={this.state.articles.urlToImage} sources={this.state.articles.publishedAt} {...article} />)}
-       </div>    
+          {this.state.articles.map(article => <ArticleRow key={Math.random()} title={this.state.articles.title} url={this.state.articles.url} urlToImage={this.state.articles.urlToImage} sources={this.state.articles.publishedAt} {...article} />)}
+        </div>
       </div>
-     );
-     }
+    );
+    }
 }
 
 export default News;

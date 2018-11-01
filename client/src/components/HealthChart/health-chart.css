@@ -1,0 +1,9 @@
+#health-chart {
+  background: #fff;
+  padding: 50px;
+  margin-top: 50px;
+}
+
+#health-chart button {
+  cursor: pointer;
+}
