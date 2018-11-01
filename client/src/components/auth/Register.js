@@ -53,11 +53,12 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
+      <div className="susibody">
       <div id="register">
-        <div className="container">
+        <div className="container" id="susi">
           <div className="row">
-            <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Sign Up</h1>
+            <div className="col-md-10 m-auto">
+              <h1 className="display-4 text-center" >Sign Up</h1>
               <p className="lead text-center">Create your Lyfe Node account</p>
               <form noValidate onSubmit={this.onSubmit}>
                 <TextFieldGroup
@@ -74,7 +75,7 @@ class Register extends Component {
                   value={this.state.email}
                   onChange={this.onChange}
                   error={errors.email}
-                  info="This site uses Gravatar so if you want a profile image, use a Gravatar email"
+                  // info="This site uses Gravatar so if you want a profile image, use a Gravatar email"
                 />
                 <TextFieldGroup
                   placeholder="Password"
@@ -92,12 +93,14 @@ class Register extends Component {
                   onChange={this.onChange}
                   error={errors.password2}
                 />
-                <input type="submit" className="btn btn-info btn-block mt-4" />
+                <input type="submit" className="btn btn-info btn-block mt-4" id="submitButton"/>
               </form>
             </div>
           </div>
         </div>
+        </div>
       </div>
+ 
     );
   }
 }

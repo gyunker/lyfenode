@@ -10,16 +10,16 @@ class Landing extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
-                <h1 className="display-3 mb-4">Lyfe Node</h1>
+                <h1 className="display-3 mb-4">LyfeNode</h1>
                 <p className="lead">
                   {" "}
-                  App Description App Description App Description
+                  A home for your life
                 </p>
                 <hr />
-                <Link to="/register" className="btn btn-lg btn-info mr-2">
+                <Link to="/register" className="btn btn-lg btn-info mr-2" id="signupButton">
                   Sign Up
                 </Link>
-                <Link to="/login" className="btn btn-lg btn-light">
+                <Link to="/login" className="btn btn-lg btn-light" id="loginButton">
                   Login
                 </Link>
               </div>
