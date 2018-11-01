@@ -8,9 +8,6 @@ import FinancialSummaryList from "./FinancialSummaryList/FinancialSummaryList";
 import BankLinkButton from "../BankLinkButton/BankLinkButton";
 
 class FinancialSummary extends Component {
-  constructor(props) {
-    super(props);
-  }
   state = {
     access: this.props.auth.user.access
   };
