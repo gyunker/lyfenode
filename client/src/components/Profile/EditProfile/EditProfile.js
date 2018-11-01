@@ -195,10 +195,10 @@ class CreateProfile extends Component {
     }
 
     return (
-      <div className="create-profile">
-        <div className="container">
+      <div className="edit-profile">
+        <div className="container" id="edit-profile">
           <div className="row">
-            <div className="col-md-8 m-auto">
+            <div className="col-md-10 m-auto">
               <h1 className="display-4 text-center">Edit Profile</h1>
               <small className="d-block pb-3">* = required fields</small>
               <form onSubmit={this.onSubmit}>
@@ -208,7 +208,7 @@ class CreateProfile extends Component {
                   value={this.state.handle}
                   onChange={this.onChange}
                   error={errors.handle}
-                  info="A unique handle for your profile URL. Your full name, company name, nickname"
+                  info="This is your user name"
                 />
                 <TextFieldGroup
                   placeholder="Location"
@@ -216,7 +216,7 @@ class CreateProfile extends Component {
                   value={this.state.location}
                   onChange={this.onChange}
                   error={errors.location}
-                  info="City,  state suggested (eg. Boston, MA)"
+                  info="City, state suggested (eg. Boston, MA)"
                 />
                 <TextFieldGroup
                   placeholder=" * Zip Code"
@@ -238,9 +238,9 @@ class CreateProfile extends Component {
                   >
                     Add Quick Links
                   </button>
-                  <span className="text-muted">
+                  {/* <span className="text-muted">
                     (Links which you want to see on the Dashboard)
-                  </span>
+                  </span> */}
                 </div>
                 {socialInputs}
                 <input
@@ -252,6 +252,7 @@ class CreateProfile extends Component {
               <button
                 onClick={this.onDeleteClick.bind(this)}
                 className="btn btn-danger"
+                id="delete-button"
               >
                 Delete My Account
               </button>
