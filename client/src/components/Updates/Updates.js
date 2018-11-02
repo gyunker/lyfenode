@@ -7,7 +7,8 @@ class Updates extends React.Component {
     workout: '',
     weight: '',
     drink: '',
-    sleep: ''
+    sleep: '',
+    heart: ''
   };
 
   handleFormInput = (event) => {
@@ -25,7 +26,8 @@ class Updates extends React.Component {
       weight: '',
       drink: '',
       sleepWell: '',
-      sleep: ''
+      sleep: '',
+      heart: ''
     });
 
     event.preventDefault();
@@ -34,7 +36,7 @@ class Updates extends React.Component {
       method: 'POST',
       headers: { Authorization: window.localStorage.getItem('jwtToken'), 'Content-Type': 'application/json' },
       body: JSON.stringify(state)
-    }).then(res => res.json()).then(console.log).catch(console.log)
+    }).then(res => res.json())
   };
 
 
@@ -47,22 +49,27 @@ class Updates extends React.Component {
 
             <div id="question">
               <label>How many hours did you workout last week?</label>
-              <input type="number" onChange={this.handleFormInput} name="workout" placeholder="3" value={this.state.workout} />
+              <input type="number" onChange={this.handleFormInput} name="workout" value={this.state.workout} />
             </div>
 
             <div id="question">
               <label>What is your weight today?</label>
-              <input type="number" onChange={this.handleFormInput} name="weight" placeholder="175" value={this.state.weight} />
+              <input type="number" onChange={this.handleFormInput} name="weight" value={this.state.weight} />
             </div>
 
             <div id="question">
               <label>How many drinks did you have last week?</label>
-              <input type="number" onChange={this.handleFormInput} name="drink" placeholder="8" value={this.state.drink} />
+              <input type="number" onChange={this.handleFormInput} name="drink" value={this.state.drink} />
             </div>
 
             <div id="question">
               <label>How many hours did you sleep last night?</label>
-              <input type="number" onChange={this.handleFormInput} name="sleep" placeholder="8" value={this.state.sleep} />
+              <input type="number" onChange={this.handleFormInput} name="sleep" value={this.state.sleep} />
+            </div>
+
+            <div id="question">
+              <label>What is your heart rate today?</label>
+              <input type="number" onChange={this.handleFormInput} name="heart" value={this.state.heart} />
             </div>
           </fieldset>
 

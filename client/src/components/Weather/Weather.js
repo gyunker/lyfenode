@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import "./weather.css";
+import { connect } from "react-redux";
 import icons from "./icons";
+import "./weather.css";
 
 const WeatherColumn = ({ timestamp, icon, temp, description }) => {
   const dayNameAbbr = new Date(timestamp * 1000)
@@ -9,7 +10,6 @@ const WeatherColumn = ({ timestamp, icon, temp, description }) => {
     .shift();
   return (
     <div className="col-sm-3">
-      {/* <p>{dayNameAbbr}</p> */}
       <img
         src={icons[icon]}
         alt={description}
@@ -25,15 +25,18 @@ class Weather extends Component {
     super();
 
     this.state = {
-      isLoading: true,
-      zip: 94403
+      isLoading: true
     };
+  }
+
+  componentWillUnmount() {
+    this.unmount = true;
   }
 
   componentDidMount() {
     fetch(
       `https://api.openweathermap.org/data/2.5/forecast?zip=${
-        this.state.zip
+        this.props.profile.zipcode
       },us&units=imperial&appid=1074c88f231350293c937f07686ff85a`
     )
       .then(res => res.json())
@@ -52,19 +55,23 @@ class Weather extends Component {
             item.dt_txt.endsWith("12:00:00")
         );
 
-        this.setState({
-          isLoading: false,
-          data: dataToday.concat(dataAtNoonNonToday).slice(0, 4),
-          city
-        });
+        if (!this.unmount) {
+          this.setState({
+            isLoading: false,
+            data: dataToday.concat(dataAtNoonNonToday).slice(0, 4),
+            city
+          });
+        }
       })
       .catch(err => {
-        this.setState({
-          isLoading: false,
-          data: [],
-          city: { name: "Error" },
-          err
-        });
+        if (!this.unmount) {
+          this.setState({
+            isLoading: false,
+            data: [],
+            city: { name: "Error" },
+            error: err
+          });
+        }
       });
   }
 
@@ -77,6 +84,10 @@ class Weather extends Component {
   }
 
   renderLoaded() {
+    if (this.state.error) {
+      return <div id="weather">Error</div>;
+    }
+
     const firstDay = new Date(this.state.data[0].dt * 1000)
       .toString()
       .split(" ")
@@ -107,4 +118,8 @@ class Weather extends Component {
   }
 }
 
-export default Weather;
+const mapStateToProps = state => ({
+  profile: state.profile.profile
+});
+
+export default connect(mapStateToProps)(Weather);

@@ -8,6 +8,7 @@ const SportEventRow = ({ homeTeam, awayTeam, strHomeTeam, strAwayTeam, intHomeSc
         <div className="col-sm-9">{homeTeam ? <img width="24" alt={homeTeam.strTeam} src={homeTeam.strTeamBadge} /> : ''}{strHomeTeam}</div>
         <div className="col-sm-3">{intHomeScore}</div>
       </div>
+
       <div className="row">
         <div className="col-sm-9">{awayTeam ? <img width="24" alt={awayTeam.strTeam} src={awayTeam.strTeamBadge} /> : ''}{strAwayTeam}</div>
         <div className="col-sm-3">{intAwayScore}</div>
@@ -27,31 +28,36 @@ class Sports extends Component {
     };
   }
 
+  componentWillUnmount() {
+    this.unmount = true;
+  }
+
   componentDidMount() {
     fetch(`https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=4328`)
       .then(res => res.json())
       .then(data => {
-        const events = data.events.slice(0, 5)
+        const events = data.events.slice(0, 5);
 
-        const teamIds = Array.from(new Set(events.map(event => ([ event.idHomeTeam, event.idAwayTeam ])).reduce((acc, val) => acc = acc.concat([...val]), [])))
+        const teamIds = Array.from(new Set(events.map(event => ([ event.idHomeTeam, event.idAwayTeam ])).reduce((acc, val) => acc = acc.concat([...val]), [])));
         const teamPromises = teamIds.map(teamId => {
           return fetch(`https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${teamId}`)
             .then(res => res.json())
-            .then(data => data.teams[0])
-        })
-        console.log(data);
+            .then(data => data.teams[0]);
+        });
 
         Promise.all(teamPromises).then(teams => {
           const teamsMap = {}
           for (const team of teams) {
-            teamsMap[team.idTeam] = team
+            teamsMap[team.idTeam] = team;
           }
 
-          this.setState({
-            isLoading: false,
-            events,
-            teams: teamsMap
-          })
+          if (!this.unmount) {
+            this.setState({
+              isLoading: false,
+              events,
+              teams: teamsMap
+            });
+          }
         })
       })
       .catch(err => {
@@ -64,7 +70,6 @@ class Sports extends Component {
 
   render() {
     return this.state.isLoading ? this.renderLoading() : this.renderLoaded();
-
   }
 
   renderLoading() {

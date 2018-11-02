@@ -1,5 +1,3 @@
-import numeral from "numeral";
-
 const Finance = {
   GetTransactionTotal: function(TArray) {
     return Math.trunc(TArray.reduce((a, b) => a + b));
