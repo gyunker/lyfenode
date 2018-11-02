@@ -1,0 +1,12 @@
+.ComplaintsForm {
+  width: 100%;
+}
+
+textarea {
+  width: 70% !important;
+  margin: 0 auto;
+}
+
+button {
+  margin: 15px 0px;
+}

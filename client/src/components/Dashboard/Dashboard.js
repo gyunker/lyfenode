@@ -9,6 +9,7 @@ import News from "../News/News";
 // import News2 from "../News2/News2";
 import Updates from "../Updates/Updates";
 import Sports from "../Sports/Sports";
+import ComplaintsForm from "../ComplaintsForm/ComplaintsForm";
 
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -35,7 +36,8 @@ class Dashboard extends Component {
           <div id="dashboard">
             <div className="row">
               <div className="col-sm-4 text-center p-3">
-                Enter your complaints here
+                Enter Your Feedback Here
+                <ComplaintsForm />
               </div>
               <div className="col-sm-4 border-l text-center p-3">
                 <Weather />
